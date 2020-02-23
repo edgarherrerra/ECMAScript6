@@ -22,3 +22,28 @@ console.log(hello.padEnd(12, ' -----'));
 const obj = {
   name: 'Edgar',
 }
+
+//=> async await
+const helloWorld = () => {
+    return new Promise((resolve, reject)=>{
+        (false)
+        ? setTimeout(()=> resolve('Hello Edgar'), 3000)
+        : reject(new Error('Test Error'))
+    });
+}
+const helloAsync = async () => {
+    const hello = await helloWorld();
+    console.log(hello);
+}
+helloAsync()
+
+// Correct.
+const anotherFunction = async () => {
+    try {
+        const hello = await helloWorld()
+        console.log(hello);
+    } catch (error) {
+        console.log(error);
+    }
+}
+anotherFunction()
